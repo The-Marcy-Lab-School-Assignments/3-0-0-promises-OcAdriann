@@ -14,13 +14,21 @@ const getRandomBytes = () => new Promise((resolve, reject) => {
 const return4RandomColors = () => {
   const colors = [];
   return getRandomBytes()
-    .then(() => {
+    .then((bytes) => {
+      colors.push(numsToRGBColor(bytes))
+      return getRandomBytes()
     })
-    .then(() => {
+    .then((bytes) => {
+      colors.push(numsToRGBColor(bytes))
+      return getRandomBytes()
     })
-    .then(() => {
+    .then((bytes) => {
+      colors.push(numsToRGBColor(bytes))
+      return getRandomBytes()
     })
-    .then(() => {
+    .then((bytes) => {
+      colors.push(numsToRGBColor(bytes))
+      return colors
     })
     .catch((err) => {
       console.error(err);
